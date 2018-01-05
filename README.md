@@ -122,4 +122,6 @@ components:{
 #### playing
 	布尔值 true(开启)
 	是否开启动态画图功能,开启后折线图会是动画画出线路
->>>>>>> c3d19f68f3ea92c8ae3a9062a84308396e40a180
+
+## 演示
+![](https://github.com/fivexu/lineChart/blob/master/demo.png)
