@@ -6,13 +6,11 @@
 	* 自适应屏幕,改变屏幕会自行重新渲染组件
 
 ## 安装
-
 ```cmd
 npm install line-chart-vue --save
 ```
 
 ## 使用
-	js
 ```javascript
 import lineChart from 'line-chart-vue'
 
@@ -20,8 +18,6 @@ components:{
 	lineChart
 }
 ```
-	html
-	
 ```html
 <div class='wrapper'>
  <line-chart></line-chart>
