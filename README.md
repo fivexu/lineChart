@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # 介绍
 ## lineChart
 	* 是基于vue开发的折线图普,使用H5 canvas实现效果
