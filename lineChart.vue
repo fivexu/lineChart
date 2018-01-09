@@ -62,7 +62,7 @@
       download () {
         let canvas = this.$refs.canvas
         if (!this.imgType.match(/png|jpeg|jpg|bmp|gif/)) {
-          this.imgType = 'jpeg'
+          this.imgType = 'jpg'
         }
         this.saveFile(canvas.toDataURL(`image/${this.imgType}`), `${new Date().getTime()}.${this.imgType}`)
       },
@@ -103,9 +103,15 @@
           }
         }, 30)
       },
-      getNumberSize (num) {
-        if (num < 0) {
+      getNumberSize (num, min = false) {
+        if (min) {
           return Math.floor(num / 5) * 5
+        }
+        if (num < 0 && !min) {
+          return Math.ceil(num / 5) * 5
+        }
+        if (num < 0) {
+          return Math.ceil(num / 5) * 5
         }
         if (num >= 0) {
           return Math.ceil(num / 5) * 5
@@ -114,7 +120,7 @@
       setRowNumber (height, cxt) {
         let row = (height - 50) / this.row
         let max = this.getNumberSize(Math.max.apply(Math, this.rowData))
-        let min = this.getNumberSize(Math.min.apply(Math, this.rowData))
+        let min = this.getNumberSize(Math.min.apply(Math, this.rowData), true)
         let num = max - min
         for (let i = 0; i < this.row; i++) {
           this.createText(20, height - (47 + i * row), cxt, this.numberToFixed((min + i * num / (this.row - 1))))
