@@ -128,13 +128,13 @@
       },
       setColNumber (width, height, cxt) {
         for (let i = this.colStart; i < (this.rowData.length + this.colStart); i++) {
-          this.createText(58 + (width - 60) / this.rowData.length * (i - this.colStart), height - 20, cxt, this.colData.length <= 0 ? i : this.colData[i])
+          this.createText(58 + (width - 60) / this.rowData.length * (i - this.colStart), height - 20, cxt, this.colData.length <= 0 ? i : this.colData[i - 1])
         }
       },
       setWeatherPosition (currentNumber) {
         let max = this.getNumberSize(Math.max.apply(Math, this.rowData))
         let min = this.getNumberSize(Math.min.apply(Math, this.rowData))
-        let num = max - min
+        let num = max - min <= 0 ? 1 : max - min
         let percen = (currentNumber - min) / num
         // (this.row - 1) * ((this.$refs.canvas.offsetHeight - 50) / this.row) 动态获取数据范围的高度
         return ((this.row - 1) * ((this.$refs.canvas.offsetHeight - 50) / this.row)) * Math.abs(percen)
@@ -165,12 +165,15 @@
       },
       createAxis () {
         this.Axis = []
+        let max = this.getNumberSize(Math.max.apply(Math, this.rowData))
+        let min = this.getNumberSize(Math.min.apply(Math, this.rowData))
+        let num = max - min <= 0 ? 1 : max - min
         let width = this.$refs.canvas.offsetWidth
         let height = this.$refs.canvas.offsetHeight
         for (let i = 0; i < this.rowData.length; i++) {
           this.Axis.push({
             x: 60 + (width - 60) / this.rowData.length * i,
-            y: height - this.setWeatherPosition(this.rowData[i]) - 50
+            y: num === 1 ? this.$refs.canvas.offsetHeight / 2 : height - this.setWeatherPosition(this.rowData[i]) - 50
           })
         }
       },
