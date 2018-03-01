@@ -1,6 +1,6 @@
 {
   "name": "line-chart-vue",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "lineChart in vue.js",
   "main": "index.js",
   "scripts": {

@@ -228,28 +228,28 @@
   }
 </script>
 
-<style lang="less" scoped rel="stylesheet/less">
+<style scoped>
   #lineChart {
     width: 100%;
     height: 100%;
     position: relative;
-    #canvas {
-      width: 100%;
-      height: 100%;
-      cursor: pointer;
-    }
-    .download {
-      padding: 0 10px;
-      height: 30px;
-      line-height: 30px;
-      position: absolute;
-      right: 0;
-      top: 0;
-      cursor: pointer;
-      text-align: center;
-      &:hover {
-        color: #f00;
-      }
-    }
+  }
+  #lineChart #canvas {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+  #lineChart .download {
+    padding: 0 10px;
+    height: 30px;
+    line-height: 30px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    text-align: center;
+  }
+  #lineChart .download:hover {
+    color: #f00;
   }
 </style>
